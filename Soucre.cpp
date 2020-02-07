@@ -3,6 +3,8 @@
 
 #include <windows.h>
 
+// Edit 07/02/2020, chaneged the name file to "Soucre", and added the cpp extension.
+
 const unsigned char MasterBootRecord[] = {}; //here enter you Hexadecimal code in midle of {};
 
 int CALLBACK WinMain(
